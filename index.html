@@ -21,10 +21,34 @@
     </div>
 
     <main class="app-shell">
-      <aside class="sidebar glass-panel" aria-label="99 names of Allah">
+      <div class="mobile-topbar glass-panel">
+        <div class="mobile-title-block">
+          <p class="mobile-eyebrow">Asma al-Husna</p>
+          <div class="mobile-title">99 Names of Allah</div>
+        </div>
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open names menu"
+          aria-controls="namesSidebar"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div id="menuOverlay" class="menu-overlay" aria-hidden="true"></div>
+
+      <aside id="namesSidebar" class="sidebar glass-panel" aria-label="99 names of Allah">
         <div class="sidebar-header">
-          <p class="eyebrow">Asma al-Husna</p>
-          <h1>99 Names of Allah</h1>
+          <div>
+            <p class="eyebrow">Asma al-Husna</p>
+            <h1>99 Names of Allah</h1>
+          </div>
+          <button id="menuClose" class="menu-close" type="button" aria-label="Close names menu">×</button>
         </div>
         <div id="namesList" class="names-list"></div>
       </aside>

@@ -114,6 +114,9 @@ const namesList = document.querySelector("#namesList");
 const selectedName = document.querySelector("#selectedName");
 const shortMeaning = document.querySelector("#shortMeaning");
 const clearName = document.querySelector("#clearName");
+const menuToggle = document.querySelector("#menuToggle");
+const menuClose = document.querySelector("#menuClose");
+const menuOverlay = document.querySelector("#menuOverlay");
 const brandBackground = document.querySelector(".brand-background");
 const cursorLayer = document.querySelector(".cursor-layer");
 const cursorDot = document.querySelector(".cursor-dot");
@@ -164,11 +167,33 @@ function renderNames() {
     button.dataset.meaning = meaning;
     button.innerHTML = `<span>${name}</span>`;
     button.setAttribute("aria-label", `${name}, ${meaning}`);
-    button.addEventListener("click", () => selectName(id));
+    button.addEventListener("click", () => {
+      selectName(id);
+      closeMenu();
+    });
     namesList.append(button);
   });
 
   updateSidebarStates();
+}
+
+function openMenu() {
+  document.body.classList.add("menu-open");
+  menuToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeMenu() {
+  document.body.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+}
+
+function toggleMenu() {
+  if (document.body.classList.contains("menu-open")) {
+    closeMenu();
+    return;
+  }
+
+  openMenu();
 }
 
 function updateSidebarStates() {
@@ -217,6 +242,16 @@ clearName.addEventListener("click", () => {
     fieldEls[field].value = "";
   });
   updateSidebarStates();
+});
+
+menuToggle.addEventListener("click", toggleMenu);
+menuClose.addEventListener("click", closeMenu);
+menuOverlay.addEventListener("click", closeMenu);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMenu();
+  }
 });
 
 function renderSparkles() {
