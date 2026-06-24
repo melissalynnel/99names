@@ -266,6 +266,30 @@ h2 {
   line-height: 1.5;
 }
 
+.spotify-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+  border: 1px solid rgba(248, 214, 109, 0.5);
+  border-radius: 8px;
+  padding: 10px 13px;
+  color: var(--gold-strong);
+  background: rgba(255, 255, 255, 0.07);
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.spotify-link:hover {
+  border-color: var(--gold-strong);
+  background: rgba(248, 214, 109, 0.12);
+  box-shadow: var(--gold-glow);
+}
+
+.spotify-link[hidden] {
+  display: none;
+}
+
 .ghost-button {
   flex: 0 0 auto;
   border: 1px solid rgba(248, 214, 109, 0.48);

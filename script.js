@@ -101,6 +101,38 @@ const names = [
 ].sort((a, b) => a[0].localeCompare(b[0]));
 
 const storageKey = "asma-reflection-notes-v1";
+const spotifyEpisodes = {
+  "al-fattah": "https://open.spotify.com/episode/150C3cmd7diNRaGWLKKvm1",
+  "ash-shakur": "https://open.spotify.com/episode/2F5T8lWLu530POcwthyZRd",
+  "al-karim": "https://open.spotify.com/episode/6mHoHCetvPRcngvCLlI3OG",
+  "al-wakil": "https://open.spotify.com/episode/1J1ZySdtH69M7ga6QdIiWf",
+  "al-wadud": "https://open.spotify.com/episode/6dsGsqMBXECyDKiw3nM7nU",
+  "at-tawwab": "https://open.spotify.com/episode/6ceAFbzuNWFzc0uxY9agrT",
+  "al-hadi": "https://open.spotify.com/episode/32eXWCge4crCSYhVPWRdpX",
+  "al-qabid": "https://open.spotify.com/episode/7AC0l8LK0cHTtjsxt6m5KC",
+  "al-basit": "https://open.spotify.com/episode/7AC0l8LK0cHTtjsxt6m5KC",
+  "az-zahir": "https://open.spotify.com/episode/4xBv7mo3njx9EQPw9Ev33M",
+  "al-batin": "https://open.spotify.com/episode/4xBv7mo3njx9EQPw9Ev33M",
+  "al-ghani": "https://open.spotify.com/episode/1gzweafezVmqAwYBItm9kM",
+  "al-mu-izz": "https://open.spotify.com/episode/0w5NFRpkV3U95RQcIjpr0j",
+  "al-mudhill": "https://open.spotify.com/episode/0w5NFRpkV3U95RQcIjpr0j",
+  "as-salam": "https://open.spotify.com/episode/3jwFwXo7eCeaynh0YR1Ud3",
+  "al-wahhab": "https://open.spotify.com/episode/1Nxk8jtmx678iQPne1L5r6",
+  "al-jabbar": "https://open.spotify.com/episode/7jMcCuWbKQ6MV4fSXn6UyM",
+  "al-muqaddim": "https://open.spotify.com/episode/2Pl5SQnD2judoxq6L50rnr",
+  "al-mu-akhkhir": "https://open.spotify.com/episode/2Pl5SQnD2judoxq6L50rnr",
+  "al-mujib": "https://open.spotify.com/episode/131M6MLrfZOxEqGYcPuClG",
+  "al-latif": "https://open.spotify.com/episode/5v1HsOM4YxJEIawfzaCSB6",
+  "an-nur": "https://open.spotify.com/episode/4cQ1b3B9Nf5GSNbh002JOl",
+  "ar-razzaq": "https://open.spotify.com/episode/2bBQGWt71BanGhIbOY3CoR",
+  "al-afuww": "https://open.spotify.com/episode/3X5DYznqCHuknXq2uhrVAp",
+  "as-sami": "https://open.spotify.com/episode/5pbeE76KG7MPyvtmsH9mB0",
+  "al-mani": "https://open.spotify.com/episode/4vX3aWNPSxa6V5kSITIiB8",
+  "al-hasib": "https://open.spotify.com/episode/5MzUGVCzBztuR0BPFxvpIV",
+  "al-hakim": "https://open.spotify.com/episode/1DqBkSHHItRCi0g4046G5C",
+  "al-qawi": "https://open.spotify.com/episode/0yePziYu2IKVgM6mnRLblR",
+  "al-hamid": "https://open.spotify.com/episode/1nL9izoFt5qrFfaqi5yRuA"
+};
 const fields = [
   "extendedMeaning",
   "creationPodcast",
@@ -113,6 +145,7 @@ const fields = [
 const namesList = document.querySelector("#namesList");
 const selectedName = document.querySelector("#selectedName");
 const shortMeaning = document.querySelector("#shortMeaning");
+const spotifyLink = document.querySelector("#spotifyLink");
 const clearName = document.querySelector("#clearName");
 const menuToggle = document.querySelector("#menuToggle");
 const menuClose = document.querySelector("#menuClose");
@@ -209,6 +242,10 @@ function selectName(id) {
   const [name, meaning] = names.find(([item]) => slugify(item) === id);
   selectedName.textContent = name;
   shortMeaning.textContent = meaning;
+  const episodeUrl = spotifyEpisodes[id];
+  spotifyLink.hidden = !episodeUrl;
+  spotifyLink.href = episodeUrl || "#";
+  spotifyLink.setAttribute("aria-label", episodeUrl ? `Listen to the ${name} episode on Spotify` : "");
 
   fields.forEach((field) => {
     fieldEls[field].value = notes[id]?.[field] || "";
