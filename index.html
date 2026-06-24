@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>99 Names Reflection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/vyy0wuq.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="brand-background" aria-hidden="true"></div>
+    <div class="cursor-layer" aria-hidden="true">
+      <div class="cursor-dot"></div>
+    </div>
+
+    <main class="app-shell">
+      <aside class="sidebar glass-panel" aria-label="99 names of Allah">
+        <div class="sidebar-header">
+          <p class="eyebrow">Asma al-Husna</p>
+          <h1>99 Names of Allah</h1>
+        </div>
+        <div id="namesList" class="names-list"></div>
+      </aside>
+
+      <section class="detail-pane glass-panel" aria-live="polite">
+        <div class="detail-scroll">
+          <div class="name-kicker">Selected name</div>
+          <header class="name-header">
+            <div>
+              <h2 id="selectedName"></h2>
+              <p id="shortMeaning" class="short-meaning"></p>
+            </div>
+            <button id="clearName" class="ghost-button" type="button">Clear notes</button>
+          </header>
+
+          <section class="content-block">
+            <label for="extendedMeaning">Extended meaning</label>
+            <textarea id="extendedMeaning" rows="5"></textarea>
+          </section>
+
+          <section class="reflection-section">
+            <h3>Recognize this name's effects in the creation</h3>
+            <div class="content-grid">
+              <div class="content-block">
+                <label for="creationPodcast">Example from podcast</label>
+                <textarea id="creationPodcast" rows="5"></textarea>
+              </div>
+              <div class="content-block">
+                <label for="creationLife">Example from your life</label>
+                <textarea id="creationLife" rows="5"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="reflection-section">
+            <h3>Embody this meaning; how can we live with the ethical/spiritual implications of those names?</h3>
+            <div class="content-grid">
+              <div class="content-block">
+                <label for="embodyPodcast">Example from podcast</label>
+                <textarea id="embodyPodcast" rows="5"></textarea>
+              </div>
+              <div class="content-block">
+                <label for="embodyLife">Example from your life</label>
+                <textarea id="embodyLife" rows="5"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <div class="gold-divider" aria-hidden="true"></div>
+
+          <section class="content-block">
+            <label for="additionalNotes">Additional notes</label>
+            <textarea id="additionalNotes" rows="5"></textarea>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
